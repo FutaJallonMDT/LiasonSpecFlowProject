@@ -61,8 +61,8 @@ namespace LiasonSpecFlowProject.StepDefinitions
         [Then(@"Search Results Page is Displayed")]
         public async Task ThenSearchResultsPageIsDisplayed()
         {
-            await resultPage.IsAboutUsResultOutputDisplayed();
-            Assert.That(resultPage.IsAboutUsResultOutputDisplayed(), Is.EqualTo(true), "Not Displayed");
+           var res = await resultPage.IsAboutUsResultOutputDisplayed();
+            Assert.That(await resultPage.IsAboutUsResultOutputDisplayed(), Is.EqualTo(true), "Not Displayed");
             
         }
 

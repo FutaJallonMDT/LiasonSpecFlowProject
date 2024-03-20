@@ -22,8 +22,12 @@ namespace LiasonSpecFlowProject.Pages
         ILocator AboutUsOutput => _driverHelpers.page.Locator("//h1['Search results for About us']");
         ILocator AboutUsResultOutput => _driverHelpers.page.Locator("//h1");
 
-        public async Task IsAboutUsResultOutputDisplayed() => await AboutUsOutput.IsVisibleAsync();
-        public async Task IsAboutUsOutputDisplayed() => await AboutUsResultOutput.IsVisibleAsync();
+        public async Task<bool> IsAboutUsResultOutputDisplayed()
+        {
+            await AboutUsResultOutput.IsVisibleAsync();
+            return await AboutUsResultOutput.IsVisibleAsync();
+        }  
+        public async Task  IsAboutUsOutputDisplayed() => await AboutUsOutput.IsVisibleAsync();
         public async Task SearchText() => await EnterTextMsg.FillAsync("INSIGHTS");
         public async Task ClickSubmitBtnForm() => await SubmitBtnForm.ClickAsync();
      
