@@ -41,9 +41,8 @@ namespace LiasonSpecFlowProject.StepDefinitions
         [Then(@"I Navigate to Search Result for About Us Page")]
         public async Task ThenINavigateToSearchResultForAboutUsPage()
         {
-            await _driverHelpers.page.Locator("//h1").WaitForAsync();
-            var errmsg = await _driverHelpers.page.Locator("//h1").IsVisibleAsync();
-            Assert.True(errmsg);
+            var res = await resultPage.IsAboutUsResultOutputDisplayed();
+            Assert.That(await resultPage.IsAboutUsResultOutputDisplayed(), Is.EqualTo(true), "Not Displayed");
         }
 
         [Then(@"User Enter INSIGHTS in the Search Tab")]
